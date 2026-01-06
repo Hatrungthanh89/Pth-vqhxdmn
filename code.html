@@ -3,405 +3,126 @@
 <html class="light" lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dashboard Tổng quan - Phòng Tổng hợp</title>
-<!-- Google Fonts -->
+<title>Màn hình Đăng nhập - Phòng Tổng hợp</title>
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config -->
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "primary-dark": "#0f4bc4",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "primary-hover": "#1d4ed8",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a2230",
             },
-        }
+            fontFamily: {
+              "display": ["Public Sans", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
     </script>
 <style>
+        /* Custom scrollbar for better aesthetics */
         body {
-            font-family: "Public Sans", sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        /* Custom scrollbar for better look */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569;
+            font-family: "Public Sans", "Noto Sans", sans-serif;
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 flex h-screen overflow-hidden">
-<!-- Sidebar -->
-<aside class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col h-full flex-shrink-0 transition-all duration-300">
-<div class="p-6 flex items-center gap-3 border-b border-gray-100 dark:border-gray-700">
-<div class="bg-primary/10 rounded-lg p-2 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-2xl">admin_panel_settings</span>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-center p-4">
+<!-- Decorative Background Elements -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-100/50 dark:bg-blue-900/10 blur-3xl"></div>
+<div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-purple-100/50 dark:bg-purple-900/10 blur-3xl"></div>
 </div>
-<div class="flex flex-col">
-<h1 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Phòng Tổng hợp</h1>
-<p class="text-xs text-gray-500 dark:text-gray-400">Quản lý dữ liệu</p>
-</div>
-</div>
-<nav class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors" href="#">
-<span class="material-symbols-outlined filled">dashboard</span>
-<span class="text-sm font-medium">Tổng quan</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group" href="#">
-<span class="material-symbols-outlined">description</span>
-<span class="text-sm font-medium">Văn bản</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group" href="#">
-<span class="material-symbols-outlined">checklist</span>
-<span class="text-sm font-medium">Công việc</span>
-<span class="ml-auto bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">3</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group" href="#">
-<span class="material-symbols-outlined">bar_chart</span>
-<span class="text-sm font-medium">Báo cáo</span>
-</a>
-<div class="my-2 border-t border-gray-100 dark:border-gray-700"></div>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group" href="#">
-<span class="material-symbols-outlined">folder_shared</span>
-<span class="text-sm font-medium">Hồ sơ chia sẻ</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group" href="#">
-<span class="material-symbols-outlined">group</span>
-<span class="text-sm font-medium">Nhân sự</span>
-</a>
-</nav>
-<div class="p-4 border-t border-gray-100 dark:border-gray-700">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-sm font-medium">Cài đặt</span>
-</a>
-<div class="mt-4 flex items-center gap-3 px-3">
-<div class="relative w-8 h-8 rounded-full overflow-hidden bg-gray-200">
-<div class="bg-center bg-no-repeat w-full h-full bg-cover" data-alt="Portrait of the user logged in" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfO8CkbmVSIJ57Cwf3KkEa_meIV3D-D9We-6zMmWWuHAQu9_GwfRzMTiE-ZJiN0aDec9gFKnQS4LWjP5KgfVk2lbDOpna39MwVffmxwEZbMOs6yTgPzuUxClAFDBO-ly7gNFdheWlE_m5zz-k6ztP6YwK7ugYxmTg0Evle0TA8aPQvDS4_ik8q-XZhbyWAj4hnMcbhsdGomBKfQYGxH_inExaCsnmDY0R8AH5GoRURG_5PK8hDwUPxMeekm-DF1GKNITWTNwDi7oQa");'></div>
-</div>
-<div class="flex flex-col">
-<p class="text-sm font-medium text-gray-900 dark:text-white">Nguyễn Văn A</p>
-<p class="text-xs text-gray-500">Trưởng phòng</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col h-full relative overflow-hidden">
-<!-- Top Navbar -->
-<header class="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6 flex-shrink-0 z-10">
-<div class="flex items-center gap-4">
-<button class="text-gray-500 hover:text-primary lg:hidden">
-<span class="material-symbols-outlined">menu</span>
-</button>
-<h2 class="text-lg font-bold text-gray-900 dark:text-white">Dashboard Tổng quan</h2>
-</div>
-<div class="flex items-center gap-4 md:gap-6">
-<!-- Search -->
-<div class="hidden md:flex items-center bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 w-64 lg:w-96 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">search</span>
-<input class="bg-transparent border-none text-sm text-gray-900 dark:text-white placeholder-gray-500 focus:ring-0 w-full ml-2" placeholder="Tìm kiếm văn bản, hồ sơ..." type="text"/>
-</div>
-<!-- Actions -->
-<div class="flex items-center gap-3">
-<button class="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-gray-800"></span>
-</button>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
-<span class="material-symbols-outlined">help</span>
-</button>
-</div>
-</div>
-</header>
-<!-- Scrollable Content -->
-<div class="flex-1 overflow-y-auto p-6 lg:p-10 scroll-smooth">
-<div class="max-w-7xl mx-auto space-y-8">
-<!-- Headline & Controls -->
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-<div>
-<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Thống kê &amp; Phân tích</h2>
-<p class="text-gray-500 dark:text-gray-400 mt-1">Cập nhật lần cuối: 15 phút trước</p>
-</div>
-<div class="flex gap-3">
-<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
-<span class="material-symbols-outlined text-[20px]">calendar_today</span>
-                            Tháng này
-                        </button>
-<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark shadow-md shadow-primary/20 transition-all">
-<span class="material-symbols-outlined text-[20px]">add</span>
-                            Tạo mới
-                        </button>
-</div>
-</div>
-<!-- Stats Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-<!-- Card 1 -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center justify-between mb-4">
-<div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-primary">
-<span class="material-symbols-outlined">move_to_inbox</span>
-</div>
-<span class="text-green-600 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">trending_up</span> +12%
-                            </span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Văn bản đến</p>
-<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">1,245</p>
-</div>
-<!-- Card 2 -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center justify-between mb-4">
-<div class="p-2 bg-purple-50 dark:bg-purple-900/30 rounded-lg text-purple-600">
-<span class="material-symbols-outlined">outbox</span>
-</div>
-<span class="text-green-600 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">trending_up</span> +5%
-                            </span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Văn bản đi</p>
-<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">890</p>
-</div>
-<!-- Card 3 -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center justify-between mb-4">
-<div class="p-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg text-orange-600">
-<span class="material-symbols-outlined">pending_actions</span>
-</div>
-<span class="text-red-600 bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">trending_down</span> -2
-                            </span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Công việc đang xử lý</p>
-<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">42</p>
-</div>
-<!-- Card 4 -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center justify-between mb-4">
-<div class="p-2 bg-green-50 dark:bg-green-900/30 rounded-lg text-green-600">
-<span class="material-symbols-outlined">task_alt</span>
-</div>
-<span class="text-green-600 bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">trending_up</span> +1.5%
-                            </span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Tỷ lệ hoàn thành</p>
-<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">94%</p>
-</div>
-</div>
-<!-- Charts Section -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-<!-- Bar Chart -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="text-lg font-bold text-gray-900 dark:text-white">Thống kê văn bản</h3>
-<div class="flex items-center gap-2 mt-1">
-<span class="text-2xl font-bold text-gray-900 dark:text-white">2,135</span>
-<span class="text-sm text-green-600 font-medium bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">+8% so với tháng trước</span>
-</div>
-</div>
-<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
-<span class="material-symbols-outlined">more_horiz</span>
-</button>
-</div>
-<!-- Simple Bar Chart Representation -->
-<div class="h-64 flex items-end gap-3 justify-between px-2">
-<!-- Bars -->
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm h-[40%] group-hover:bg-primary/40 transition-all relative"></div>
-<span class="text-xs text-gray-500 font-medium">T1</span>
-</div>
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm h-[65%] group-hover:bg-primary/40 transition-all"></div>
-<span class="text-xs text-gray-500 font-medium">T2</span>
-</div>
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm h-[50%] group-hover:bg-primary/40 transition-all"></div>
-<span class="text-xs text-gray-500 font-medium">T3</span>
-</div>
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm h-[80%] group-hover:bg-primary/40 transition-all"></div>
-<span class="text-xs text-gray-500 font-medium">T4</span>
-</div>
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm h-[60%] group-hover:bg-primary/40 transition-all"></div>
-<span class="text-xs text-gray-500 font-medium">T5</span>
-</div>
-<div class="flex-1 flex flex-col justify-end items-center gap-2 group">
-<div class="w-full bg-primary rounded-t-sm h-[90%] shadow-lg shadow-primary/30 transition-all"></div>
-<span class="text-xs text-gray-900 dark:text-white font-bold">T6</span>
-</div>
-</div>
-</div>
-<!-- Line Chart -->
-<div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="text-lg font-bold text-gray-900 dark:text-white">Hiệu suất xử lý</h3>
-<div class="flex items-center gap-2 mt-1">
-<span class="text-2xl font-bold text-gray-900 dark:text-white">85%</span>
-<span class="text-sm text-green-600 font-medium bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">+12% hiệu quả</span>
-</div>
-</div>
-<div class="flex gap-2">
-<span class="w-3 h-3 rounded-full bg-primary mt-1.5"></span>
-<span class="text-xs text-gray-500">Hoàn thành</span>
-</div>
-</div>
-<!-- Graph using SVG -->
-<div class="h-64 relative w-full flex flex-col justify-end">
-<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 478 150" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient id="paint0_linear_custom" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#135bec" stop-opacity="0.2"></stop>
-<stop offset="100%" stop-color="#135bec" stop-opacity="0"></stop>
-</lineargradient>
-</defs>
-<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V150H0V109Z" fill="url(#paint0_linear_custom)"></path>
-<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" fill="none" stroke="#135bec" stroke-linecap="round" stroke-width="3"></path>
+<!-- Login Card Container -->
+<div class="relative z-10 w-full max-w-[440px] flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Header / Logo Area -->
+<div class="px-8 pt-10 pb-2 flex flex-col items-center text-center">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
 </svg>
-<div class="flex justify-between mt-2 px-2 border-t border-gray-100 dark:border-gray-700 pt-2">
-<span class="text-xs text-gray-500 font-medium">Tuần 1</span>
-<span class="text-xs text-gray-500 font-medium">Tuần 2</span>
-<span class="text-xs text-gray-500 font-medium">Tuần 3</span>
-<span class="text-xs text-gray-500 font-medium">Tuần 4</span>
 </div>
+<h1 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight tracking-tight mb-2">
+                Phòng Tổng hợp
+            </h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">
+                Đăng nhập để truy cập cơ sở dữ liệu
+            </p>
 </div>
+<!-- Form Area -->
+<div class="p-8 pt-6 flex flex-col gap-5">
+<!-- Username Field -->
+<label class="flex flex-col gap-1.5">
+<span class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal">Tên đăng nhập</span>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-slate-400 pointer-events-none flex items-center">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</span>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary h-12 pl-11 pr-4 text-base transition-colors" placeholder="Nhập tên đăng nhập hoặc email" type="text" value=""/>
 </div>
+</label>
+<!-- Password Field -->
+<label class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal">Mật khẩu</span>
 </div>
-<!-- Recent Activity Table -->
-<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-<div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-<h3 class="text-lg font-bold text-gray-900 dark:text-white">Hoạt động gần đây</h3>
-<a class="text-sm font-medium text-primary hover:text-primary-dark transition-colors" href="#">Xem tất cả</a>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700">
-<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tên văn bản / Công việc</th>
-<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Người xử lý</th>
-<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Ngày cập nhật</th>
-<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Trạng thái</th>
-<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">Thao tác</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-<td class="px-6 py-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-sm">description</span>
-</div>
-<div>
-<p class="text-sm font-medium text-gray-900 dark:text-white">Quyết định số 123/QD-HDQT</p>
-<p class="text-xs text-gray-500">Về việc bổ nhiệm cán bộ</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Nguyễn Văn A</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">10:30, 24/05/2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
-                                            Đã duyệt
-                                        </span>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="text-gray-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">edit_square</span>
+<div class="relative flex w-full items-stretch rounded-lg">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none flex items-center z-10">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</span>
+<input class="form-input flex-1 w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary h-12 pl-11 pr-12 text-base transition-colors" placeholder="Nhập mật khẩu" type="password" value=""/>
+<button class="absolute right-0 top-0 h-12 w-12 flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors focus:outline-none rounded-r-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
 </button>
-</td>
-</tr>
-<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-<td class="px-6 py-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 flex-shrink-0">
-<span class="material-symbols-outlined text-sm">assignment</span>
 </div>
-<div>
-<p class="text-sm font-medium text-gray-900 dark:text-white">Báo cáo tổng kết Quý I</p>
-<p class="text-xs text-gray-500">Cần bổ sung số liệu tài chính</p>
+</label>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-1">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="form-checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary transition duration-150 ease-in-out cursor-pointer" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors">Ghi nhớ đăng nhập</span>
+</label>
+<a class="text-sm font-semibold text-primary hover:text-primary-hover hover:underline transition-all" href="#">Quên mật khẩu?</a>
 </div>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Trần Thị B</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">09:15, 24/05/2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
-                                            Chờ xử lý
-                                        </span>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="text-gray-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">edit_square</span>
+<!-- Submit Button -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary hover:bg-primary-hover text-white text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-md hover:shadow-lg active:scale-[0.99] mt-2">
+<span class="truncate">Đăng nhập</span>
 </button>
-</td>
-</tr>
-<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-<td class="px-6 py-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 flex-shrink-0">
-<span class="material-symbols-outlined text-sm">mail</span>
 </div>
-<div>
-<p class="text-sm font-medium text-gray-900 dark:text-white">Công văn đến Sở KHĐT</p>
-<p class="text-xs text-gray-500">Phản hồi dự án ABC</p>
+<!-- Divider -->
+<div class="relative px-8 py-2">
+<div aria-hidden="true" class="absolute inset-0 flex items-center px-8">
+<div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
+</div>
+<div class="relative flex justify-center text-sm leading-5">
+<span class="bg-surface-light dark:bg-surface-dark px-2 text-slate-400 text-xs uppercase tracking-wider">Hỗ trợ</span>
 </div>
 </div>
-</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Lê Văn C</td>
-<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">16:45, 23/05/2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-                                            Đang chuyển
-                                        </span>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="text-gray-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-lg">edit_square</span>
+<!-- Footer Actions -->
+<div class="px-8 pb-8 pt-4 flex flex-col items-center gap-4">
+<button class="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span>Trung tâm trợ giúp</span>
 </button>
-</td>
-</tr>
-</tbody>
-</table>
+<p class="text-xs text-slate-400 text-center">
+                © 2024 Phòng Tổng hợp. Bảo mật &amp; Riêng tư.
+            </p>
 </div>
 </div>
-<!-- Footer -->
-<footer class="mt-8 text-center text-sm text-gray-500 pb-8">
-                    © 2023 Phòng Tổng hợp - Hệ thống Quản lý Dữ liệu Nội bộ.
-                </footer>
-</div>
-</div>
-</main>
 </body></html>
